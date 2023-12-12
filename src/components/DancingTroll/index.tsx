@@ -1,14 +1,14 @@
 import Image from 'next/image'
 
-export default function N033Logo() {
+export default function DancingTroll() {
   
     return (
-      <div className="logo absolute right-5 bottom-5">
+      <div className="absolute left-5 bottom-0">
         <Image
-          src="./assets/images/N033.svg"
+          src="/assets/images/dancing-troll.gif"
           width={200}
           height={100}
-          alt="N033 Logo"
+          alt="Dancing Troll"
           className="drop-shadow"
         />
       </div>

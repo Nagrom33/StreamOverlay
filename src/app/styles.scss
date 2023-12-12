@@ -1,0 +1,22 @@
+:root{
+  --width: 1920px;
+  --height: 1080px;
+  --borderWidth: 10px;
+  --borderColor: #10a800;
+}
+
+#box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: calc(var(--width));
+    height: calc(var(--height));
+    border: var(--borderWidth) solid var(--borderColor);
+  }
+}
