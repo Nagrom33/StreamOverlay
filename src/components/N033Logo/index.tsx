@@ -8,7 +8,7 @@ export default function N033Logo() {
         className="logo absolute right-9 bottom-9"
         initial={{ rotateY: 0 }}
         animate={{ rotateY: 360 }}
-        transition={{ delay: 10, duration: 2 }}
+        transition={{ delay: 10, repeat: Infinity, duration: 2 }}
       >
         <Image
           src="./assets/images/N033.svg"
