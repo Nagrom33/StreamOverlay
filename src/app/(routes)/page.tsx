@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import N033Logo from '@/components/N033Logo'
 import Confetti from '@/components/Confetti'
 import DancingTroll from '@/components/DancingTroll'
+// import WebcamBorder from '@/components/WebcamBorder'
 // import SubscribersBar from '@/components/SubscribersBar'
 
 // Hooks
@@ -47,6 +48,7 @@ export default function Home() {
       className="relative flex items-center justify-center w-[1920px] h-[1080px]"
     >
       <div id="box" />
+      {/* <WebcamBorder /> */}
       <N033Logo />
       {showConfetti && (
         <Confetti />
