@@ -1,17 +1,49 @@
+"use client"
+import { useEffect } from 'react'
+
+// Hooks
+import socket from '@/lib/socket'
+
 export default function Controls() {
+  useEffect(() => {
+    socket.emit("joinRoom", "stream", "controls");
+  }, []);
+
+  const sendEvent = async function (event: string, value?: string | Record<string, any>): Promise<any> {
+    if (socket) {
+      // Emit the "Button" event with the specified parameters
+      console.log('Sending Event:', event, 'Value:', value)
+      return socket.emit(event, 'stream', 'controls', value);
+    } else {
+      console.log('No socket connection!');
+    }
+  };
+
+  const Buttons = [
+    {
+      name: "Confetti",
+      color: "bg-green-500",
+      event: "confetti"
+    },
+    {
+      name: "Dancing Troll",
+      color: "bg-red-500",
+      event: "dancing-troll"
+    },
+  ];
 
   return (
     <main
       className="grid grid-cols-2 gap-4 h-screen"
     >
-        <button className="p-4 bg-blue-500 text-white h-full">Button 1</button>
-        <button className="p-4 bg-green-500 text-white h-full">Button 2</button>
-        <button className="p-4 bg-red-500 text-white h-full">Button 3</button>
-        <button className="p-4 bg-yellow-500 text-white h-full">Button 4</button>
-        <button className="p-4 bg-purple-500 text-white h-full">Button 5</button>
-        <button className="p-4 bg-indigo-500 text-white h-full">Button 6</button>
-        <button className="p-4 bg-pink-500 text-white h-full">Button 7</button>
-        <button className="p-4 bg-gray-500 text-white h-full">Button 8</button>
+      {Buttons.map((button, i) => (
+        <button
+          className={`p-4 ${button.color} text-white h-full`}
+          onClick={() => sendEvent("Button", button.event)}
+        >
+          {button.name}
+        </button>
+      ))}
     </main>
   )
 }
