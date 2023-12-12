@@ -38,6 +38,7 @@ export default function Controls() {
     >
       {Buttons.map((button, i) => (
         <button
+          key={i.toString()}
           className={`p-4 ${button.color} text-white h-full`}
           onClick={() => sendEvent("Button", button.event)}
         >
