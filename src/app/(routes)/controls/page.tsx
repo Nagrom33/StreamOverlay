@@ -53,7 +53,9 @@ export default function Controls() {
           {button.name}
         </button>
       ))}
-      {availibleScenes && availibleScenes.map((scene, i) => {
+      {availibleScenes && availibleScenes
+        .filter(scene => scene.startsWith('+ '))
+        .map((scene, i) => {
       return(
         <button
           key={i.toString()}
