@@ -4,7 +4,7 @@ const obsService = {
   getSceneList: async () => {
     console.log(process.env);
     try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_OBS_SOCKET_SERVER}:${process.env.NEXT_PUBLIC_OBS_SOCKET_PORT}/scenes`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_OBS_SOCKET_SERVER}/scenes`);
         return response.data.sceneList;
     } catch (error) {
       console.error('Error getting scene list:', error);
@@ -17,7 +17,7 @@ const obsService = {
         "sceneName": scene
     }
     try {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_OBS_SOCKET_SERVER}:${process.env.NEXT_PUBLIC_OBS_SOCKET_PORT}/switchScene`, data);
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_OBS_SOCKET_SERVER}/switchScene`, data);
         return response.data;
     } catch (error) {
       console.error('Error posting data:', error);
